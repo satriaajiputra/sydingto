@@ -12,7 +12,9 @@ import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,7 +29,7 @@ public class LoginFrame extends javax.swing.JFrame implements Buttons {
      */
     public LoginFrame() {
         initComponents();
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(new Dimension(800, 600));
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -103,7 +105,7 @@ public class LoginFrame extends javax.swing.JFrame implements Buttons {
         passwordSignUpField = new javax.swing.JPasswordField();
         buttonSignUp = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        passwordSignUpField1 = new javax.swing.JPasswordField();
+        passwordConfirmField = new javax.swing.JPasswordField();
         buttonClose = new javax.swing.JLabel();
         btnAbout = new javax.swing.JLabel();
         buttonMinimize = new javax.swing.JLabel();
@@ -213,6 +215,11 @@ public class LoginFrame extends javax.swing.JFrame implements Buttons {
         buttonSignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonSignIn.setOpaque(true);
         buttonSignIn.setPreferredSize(new java.awt.Dimension(228, 40));
+        buttonSignIn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonSignInMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout signInPanelLayout = new javax.swing.GroupLayout(signInPanel);
         signInPanel.setLayout(signInPanelLayout);
@@ -291,22 +298,27 @@ public class LoginFrame extends javax.swing.JFrame implements Buttons {
         buttonSignUp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonSignUp.setOpaque(true);
         buttonSignUp.setPreferredSize(new java.awt.Dimension(228, 40));
+        buttonSignUp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonSignUpMouseClicked(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Lato", 1, 14)); // NOI18N
         jLabel5.setForeground(Colors.GRAY3);
         jLabel5.setLabelFor(passwordField);
         jLabel5.setText("Confirm Password");
 
-        passwordSignUpField1.setFont(new java.awt.Font("Lato", 0, 14)); // NOI18N
-        passwordSignUpField1.setForeground(Colors.HEADING_COLOR);
-        passwordSignUpField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        passwordSignUpField1.setToolTipText("Confirm Password");
-        passwordSignUpField1.setBorder(new javax.swing.border.LineBorder(Colors.GRAY3, 1, true));
-        passwordSignUpField1.setName("password"); // NOI18N
-        passwordSignUpField1.setPreferredSize(new java.awt.Dimension(228, 40));
-        passwordSignUpField1.addActionListener(new java.awt.event.ActionListener() {
+        passwordConfirmField.setFont(new java.awt.Font("Lato", 0, 14)); // NOI18N
+        passwordConfirmField.setForeground(Colors.HEADING_COLOR);
+        passwordConfirmField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        passwordConfirmField.setToolTipText("Confirm Password");
+        passwordConfirmField.setBorder(new javax.swing.border.LineBorder(Colors.GRAY3, 1, true));
+        passwordConfirmField.setName("password"); // NOI18N
+        passwordConfirmField.setPreferredSize(new java.awt.Dimension(228, 40));
+        passwordConfirmField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordSignUpField1ActionPerformed(evt);
+                passwordConfirmFieldActionPerformed(evt);
             }
         });
 
@@ -322,7 +334,7 @@ public class LoginFrame extends javax.swing.JFrame implements Buttons {
                         .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(passwordSignUpField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(passwordSignUpField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordConfirmField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -340,7 +352,7 @@ public class LoginFrame extends javax.swing.JFrame implements Buttons {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passwordSignUpField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordConfirmField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(buttonSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -481,9 +493,9 @@ public class LoginFrame extends javax.swing.JFrame implements Buttons {
         signUpSeparator.setBackground(Color.WHITE);
     }//GEN-LAST:event_signInTabMouseClicked
 
-    private void passwordSignUpField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordSignUpField1ActionPerformed
+    private void passwordConfirmFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordConfirmFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passwordSignUpField1ActionPerformed
+    }//GEN-LAST:event_passwordConfirmFieldActionPerformed
 
     /**
      * Close the frame
@@ -505,6 +517,36 @@ public class LoginFrame extends javax.swing.JFrame implements Buttons {
         AboutFrame about = new AboutFrame();
         about.setVisible(true);
     }//GEN-LAST:event_btnAboutMouseClicked
+
+    private void buttonSignInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonSignInMouseClicked
+        String username = usernameField.getText();
+        String password = Arrays.toString(passwordField.getPassword());
+        
+        if(!username.equals("") && !password.equals("")) {
+            MainFrame mf = new MainFrame(username);
+            mf.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Username and Password is required");
+        }
+    }//GEN-LAST:event_buttonSignInMouseClicked
+
+    private void buttonSignUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonSignUpMouseClicked
+        String username = usernameSignUpField.getText();
+        String password = Arrays.toString(passwordSignUpField.getPassword());
+        String passwordConfirm = Arrays.toString(passwordConfirmField.getPassword());
+
+        if(!password.equals(passwordConfirm)) {
+            JOptionPane.showMessageDialog(this, "Password confirmation not same");
+        }
+        else if(!username.equals("") && !password.equals("") && !passwordConfirm.equals("")) {
+            MainFrame mf = new MainFrame(username);
+            mf.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Username and Password is required");
+        }
+    }//GEN-LAST:event_buttonSignUpMouseClicked
 
     /**
      * @param args the command line arguments
@@ -557,9 +599,9 @@ public class LoginFrame extends javax.swing.JFrame implements Buttons {
     private javax.swing.JLabel logo;
     private javax.swing.JPanel main_bg;
     private javax.swing.JPanel main_content;
+    private javax.swing.JPasswordField passwordConfirmField;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JPasswordField passwordSignUpField;
-    private javax.swing.JPasswordField passwordSignUpField1;
     private javax.swing.JPanel signInPanel;
     private javax.swing.JSeparator signInSeparator;
     private javax.swing.JLabel signInTab;
