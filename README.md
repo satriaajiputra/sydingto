@@ -1,6 +1,8 @@
 # sydingto
 A simple custom UI Java Desktop with Swing
 
+<img src="screenshot.png" alt="screenshot.png" />
+
 ## Quick Installation
 1. Clone the repository
 ```bash
