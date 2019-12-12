@@ -350,6 +350,7 @@ public class LoginFrame extends javax.swing.JFrame implements Buttons {
 
         buttonClose.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         buttonClose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sydingto/images/btn_close.png"))); // NOI18N
+        buttonClose.setToolTipText("Exit");
         buttonClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonClose.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -359,6 +360,7 @@ public class LoginFrame extends javax.swing.JFrame implements Buttons {
 
         btnAbout.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         btnAbout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sydingto/images/btn_about.png"))); // NOI18N
+        btnAbout.setToolTipText("About");
         btnAbout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAbout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -368,6 +370,7 @@ public class LoginFrame extends javax.swing.JFrame implements Buttons {
 
         buttonMinimize.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         buttonMinimize.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sydingto/images/btn_minimize.png"))); // NOI18N
+        buttonMinimize.setToolTipText("Minimize");
         buttonMinimize.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonMinimize.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
